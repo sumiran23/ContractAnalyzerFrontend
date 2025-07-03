@@ -1,0 +1,25 @@
+.uploadForm {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 2rem 0;
+  justify-content: center;
+}
+.uploadForm input[type="file"] {
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+.uploadForm button {
+  padding: 0.6rem 1.2rem;
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.uploadForm button:hover {
+  background: #3182ce;
+}

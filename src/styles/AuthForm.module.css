@@ -1,0 +1,33 @@
+.form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 350px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+.form input {
+  padding: 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+.form button {
+  padding: 0.7rem;
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form button:hover {
+  background: #3182ce;
+}
