@@ -8,7 +8,7 @@ const Login = () => {
   const handleLogin = async (email: string, password: string) => {
     try {
       const response = await axios.post("/auth/login", { email, password });
-      const { token } = response.data;
+      const { access_token: token } = response.data;
       localStorage.setItem("accessToken", token);
       localStorage.setItem("userEmail", email);
       navigate("/dashboard");

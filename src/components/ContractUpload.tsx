@@ -15,6 +15,8 @@ const ContractUpload = ({ onUpload }: Props) => {
         e.preventDefault();
         if (fileInput.current?.files?.[0]) {
           onUpload(fileInput.current.files[0]);
+          // Clear the file input after successful upload
+          fileInput.current.value = "";
         }
       }}
     >
