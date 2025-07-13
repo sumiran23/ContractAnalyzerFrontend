@@ -5,9 +5,58 @@ import axios from "../services/customAxios";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 
+// Simple modal spinner component
+const ProcessingModal = ({ open }: { open: boolean }) =>
+  open ? (
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        background: "rgba(0,0,0,0.25)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 9999,
+      }}
+    >
+      <div
+        style={{
+          background: "#fff",
+          padding: "2rem 3rem",
+          borderRadius: 10,
+          boxShadow: "0 2px 16px rgba(0,0,0,0.15)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div
+          className="spinner"
+          style={{
+            border: "4px solid #e2e8f0",
+            borderTop: "4px solid #3182ce",
+            borderRadius: "50%",
+            width: 40,
+            height: 40,
+            animation: "spin 1s linear infinite",
+            marginBottom: 16,
+          }}
+        />
+        <span>Processing document...</span>
+        <style>
+          {`@keyframes spin { 100% { transform: rotate(360deg); } }`}
+        </style>
+      </div>
+    </div>
+  ) : null;
+
 const Dashboard = () => {
   const [contracts, setContracts] = useState<any[]>([]);
   const [fetchDocumentsList, setFetchDocumentsList] = useState<Boolean>(true);
+  const [processing, setProcessing] = useState(false);
 
   useEffect(() => {
     if (fetchDocumentsList) {
@@ -26,10 +75,10 @@ const Dashboard = () => {
   }, [fetchDocumentsList]);
 
   const handleUpload = async (file: File) => {
-    // TODO: Implement contract upload logic (API call, update list)
     const formData = new FormData();
     formData.append("file", file);
 
+    setProcessing(true);
     try {
       const response = await axios.post("/documents/upload", formData, {
         headers: {
@@ -40,6 +89,9 @@ const Dashboard = () => {
       toast.success("File upload successful!");
     } catch (error) {
       console.error("Upload failed:", error);
+      toast.error("File upload failed!");
+    } finally {
+      setProcessing(false);
     }
   };
 
@@ -101,6 +153,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <ProcessingModal open={processing} />
       <ContractUpload onUpload={handleUpload} />
       <ContractList
         contracts={contracts}

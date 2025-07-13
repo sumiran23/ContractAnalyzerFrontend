@@ -2,7 +2,8 @@
   background: #fff;
   padding: 1.5rem;
   border-radius: 8px;
-  max-width: 600px;
+  /* max-width: 600px; */
+  width: 70%;
   margin: 2rem auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
@@ -34,4 +35,170 @@
 }
 .list button:hover {
   background: #c53030;
+}
+.contractCard {
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contractRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.contractInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.contractName {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.contractDate {
+  color: #718096;
+  font-size: 0.95rem;
+}
+.summaryAndSections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.summary {
+  margin: 0;
+  background: #edf2f7;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-size: 0.98rem;
+}
+.sections {
+  margin-bottom: 0.2rem;
+}
+.sectionChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.sectionChip {
+  background: #e2e8f0;
+  border: none;
+  border-radius: 16px;
+  padding: 0.3rem 1rem;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sectionChip:hover {
+  background: #63b3ed;
+  color: #fff;
+}
+.actions {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+.actions button {
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actions button:hover {
+  background: #3182ce;
+}
+.sectionModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.sectionModal {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90vw;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+}
+.sectionModal h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.sectionModal button {
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sectionModal button:hover {
+  background: #3182ce;
+}
+.chatHistory {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  background: #f7fafc;
+  border-radius: 6px;
+  padding: 1rem;
+}
+.chatUserMsg {
+  background: #bee3f8;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  align-self: flex-end;
+}
+.chatBotMsg {
+  background: #e2e8f0;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+}
+.chatInputRow {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.chatInputRow input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.chatInputRow button {
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.chatInputRow button:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
 }
