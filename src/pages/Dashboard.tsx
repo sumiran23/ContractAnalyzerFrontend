@@ -95,8 +95,19 @@ const Dashboard = () => {
     }
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     // TODO: Implement contract delete logic (API call, update list)
+    setProcessing(true);
+    try {
+      await axios.delete(`/documents/delete/${id}`);
+      toast.success("Contract deleted successfully!");
+      setFetchDocumentsList(true);
+    } catch (error) {
+      console.error("Delete failed:", error);
+      toast.error("Failed to delete contract!");
+    } finally {
+      setProcessing(false);
+    }
   };
 
   const handleDownload = async (id: string) => {
